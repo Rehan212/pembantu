@@ -21,7 +21,10 @@
     <link rel="stylesheet" href="{{ asset('assets/dash/assets/css/styles.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/dash/assets/css/responsive.css')}}">
 
-    @yield('css')
+    {{-- <link rel="stylesheet" type="text/css" href="/asset/DataTables/datatables.min.css"/> --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/DataTables/datatables.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/DataTables/datatables.min.css')}}"/>
+
     <!-- modernizr css -->
     <script src="{{ asset('assets/dash/assets/js/vendor/modernizr-2.8.3.min.js')}}"></script>
 </head>
@@ -51,21 +54,14 @@
                             <li class="active">
                                 <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>dashboard</span></a>
                                 <ul class="collapse">
-                                    @role('admin')
-                                        <li><a href="/backend/petugas">Petugas</a></li>
-                                    @endrole
-                                        <li><a href="/backend/buku">Data Buku</a></li>
-                                        <li><a href="/backend/detailpinjam">Detail Pinjam</a></li>
-                                        <li><a href="/backend/kartupendaftaran">Daftar Kartu</a></li>
-                                    @role('admin')
-                                        <li><a href="/backend/kategori">Kategori</a></li>
-                                    @endrole
-                                        <li><a href="/backend/peminjam">Orang peminjam</a></li>
-                                        <li><a href="/backend/peminjaman">Pinjaman</a></li>
-                                    @role('admin')
-                                        <li><a href="/backend/penerbit">penerbit</a></li>
-                                        <li><a href="/backend/user">User</a></li>
-                                    @endrole
+
+                                        <li><a href="/majikan">Majikan</a></li>
+
+                                        <li><a href="/pembantu">pembantu</a></li>
+
+
+                                        <li><a href="/kategori">Kategori</a></li>
+
                                 </ul>
                             </li>
 
@@ -291,7 +287,7 @@
                 <!-- overview area end -->
                 <!-- market value area start -->
                 <div class="row mt-5 mb-5">
-                    <div class="col-12">
+                    <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
                                 @yield('content')
@@ -544,11 +540,17 @@
     <script src="{{ asset('assets/dash/assets/js/plugins.js')}}"></script>
     <script src="{{ asset('assets/dash/assets/js/scripts.js')}}"></script>
     {{-- <script type="text/javascript" src="{{ asset('assets/DataTables/DataTables-1.10.20/js/jquery.dataTables.min.js')}}"></script> --}}
-    <script type="text/javascript" src="{{ asset('assets/DataTables/Bootstrap-4-4.1.1/js/bootstrap.min.js')}}"></script>
+    {{-- <script type="text/javascript" src="{{ asset('assets/DataTables/Bootstrap-4-4.1.1/js/bootstrap.min.js')}}"></script> --}}
 {{-- <script type="text/javascript" src="{{ asset('assets/DataTables/DataTables-1.10.20/js/dataTables.bootstrap4.min.js')}}"></script> --}}
-<script src="{{asset('assets/ckeditor/ckeditor.js')}}"></script>
-
-    @yield('js')
+    <script src="{{asset('assets/ckeditor/ckeditor.js')}}"></script>
+    <script type="text/javascript" src="/assets/DataTables/datatables.min.js"></script>
+    <script type="text/javascript" src="/assets/DataTables/datatables.js"></script>
+    {{-- <script type="text/javascript" src="/assets/DataTables/bootstrap.min.js"></script> --}}
+    <script>
+        $(document).ready(function() {
+            $("#tab").DataTable();
+        } );
+    </script>
 </body>
 
 </html>

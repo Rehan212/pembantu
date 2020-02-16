@@ -29,7 +29,7 @@ class PembantuController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.pembantu.create');
     }
 
     /**
@@ -40,7 +40,32 @@ class PembantuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pembantu = new pembantu();
+        $pembantu->pembantu_kode = $request->pembantu_kode;
+        $pembantu->n_pembantu = $request->n_pembantu;
+        $pembantu->alamat_pembantu = $request->alamat_pembantu;
+        $pembantu->umur = $request->umur;
+        $pembantu->jk_pembantu = $request->jk_pembantu;
+        $pembantu->pendidikan = $request->pendidikan;
+        $pembantu->agama = $request->agama;
+        $pembantu->status = $request->status;
+        $pembantu->pengalaman_kerja = $request->pengalaman_kerja;
+
+        if ($request->hasFile('photo_art')) {
+            $file = $request->file('photo_art');
+            $path = public_path() . '/assets/img/';
+            $filename = $file->getClientOriginalName();
+            $upload = $file->move($path, $filename);
+            $pembantu->photo_art = $filename;
+        }
+        $pembantu->save();
+         Session::flash("flash_notification",[
+            // "level" => "success",
+            // "message" => "berhasil mengedit <b>"
+            //             .$kategori->kategori_nama."</b>"
+        ]);
+            //6.tampilkan berhasil
+            return redirect()->route('pembantu.index');
     }
 
     /**

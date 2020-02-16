@@ -1,10 +1,10 @@
-    @extends('layouts.template')
+    @extends('layouts.dash')
     @section('content')
 
     <center><h1>Data pembantu</h1></center>
 
 
-        <div class="col-md-12">
+
                 <table id="tab" class="table table-striped table-bordered" style="width:100%">
                 <!-- <table class="table table-default"> -->
 
@@ -24,7 +24,8 @@
                     <th>Pendidikan</th>
                     <th>Agama</th>
                     <th>Status</th>
-				    <th>Pengalaman kerja</th>
+                    <th>Pengalaman kerja</th>
+                    <th>Foto KTP</th>
 		            <th><center>Action</center></th>
                 </tr>
 
@@ -44,18 +45,16 @@
                             <td>{{ $data->pendidikan }}</td>
                             <td>{{ $data->agama}}</td>
                             <td>{{ $data->status}}</td>
-						    <td>{{ $data->pengalaman_kerja }}</td>
-                            <td>
-                                    <div class="icon-container">
-                                            <button class="btn-lg"><a  href="{{route('pembantu.edit',$data->id)}}"><span class="ti-pencil"></span><span class="icon-name"></span></a></button>
-                                        </div>
+                            <td>{{ $data->pengalaman_kerja }}</td>
 
+                            <td><img src="{{ asset('assets/img/'.$data->photo_art.'') }}" alt="" height="100px" width="150px"></td>
+                            <td>
+
+                                        <button class="btn-lg"><a  href="{{route('pembantu.edit',$data->id)}}"><span class="ti-pencil"></span><span class="icon-name"></span></a></button>
                                         <form action="{{ route('pembantu.destroy', $data->id) }}" method="post">
-                                        @csrf
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <div class="icon-container">
+                                            @csrf
+                                            <input type="hidden" name="_method" value="DELETE">
                                             <button class="btn-lg" type="submit"><span class="ti-trash"></span><span class="icon-name"></span></button>
-                                        </div>
                                         </form>
                             </td>
                         </tr>
@@ -63,6 +62,6 @@
                     @endforeach
                 </tbody>
             </table>
-        </div>
+
     @endsection
 

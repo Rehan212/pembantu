@@ -25,4 +25,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('pembantu', 'PembantuController');
 Route::resource('kategori', 'KategoriController');
-Route::get('/majikan', 'MajikanController@index');
+Route::resource('majikan', 'MajikanController');

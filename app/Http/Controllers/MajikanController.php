@@ -29,7 +29,7 @@ class MajikanController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.majikan.create');
     }
 
     /**
@@ -40,7 +40,21 @@ class MajikanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $majikan = new majikan();
+        $majikan->majikan_kode = $request->majikan_kode;
+        $majikan->nama_majikan = $request->nama_majikan;
+        $majikan->jenis_kelamin = $request->jenis_kelamin;
+        $majikan->alamat_majikan = $request->alamat_majikan;
+        $majikan->no_ktp = $request->no_ktp;
+        $majikan->save();
+         Session::flash("flash_notification",[
+            // "level" => "success",
+            // "message" => "berhasil mengedit <b>"
+            //             .$kategori->kategori_nama."</b>"
+        ]);
+            //6.tampilkan berhasil
+            return redirect()->route('majikan.index');
+
     }
 
     /**

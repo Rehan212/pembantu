@@ -15,11 +15,10 @@
             <thead>
 		    <tr class="bg-info">
 		        <th>No</th>
-                    <th>Kode </th>
-                    <th>Nama </th>
-                    <th>Jenis Kelamin</th>
-                    <th>Alamat</th>
-                    <th>Nomer KTP</th>
+                    <th>Kode Majikan </th>
+                    <th>kode Kategori</th>
+                    <th>Kode Pembatu</th>
+                    <th>Durasi Kontrak</th>
 		            <th><center>Action</center></th>
 
 		        </tr>
@@ -32,10 +31,9 @@
 		                <tr>
 			                <td>{{$no++}}</td>
 			                <td>{{ $data->majikan_kode }}</td>
-                            <td>{{ $data->nama_majikan }}</td>
-                            <td>{{ $data->jenis_kelamin }}</td>
-                            <td>{{ $data->alamat_majikan}}</td>
-                            <td>{{ $data->no_ktp}}</td>
+                            <td>{{ $data->kategori_kode}}</td>
+                            <td>{{ $data->pembantu_kode }}</td>
+                            <td>{{ $data->durasi_kontrak}}</td>
 	                        <td>
 								<button class="btn-lg"><a  href="{{route('majikan.edit',$data->id)}}"><span class="ti-pencil"></span></a></button>
                                 <form action="{{ route('majikan.destroy', $data->id) }}" method="post">
