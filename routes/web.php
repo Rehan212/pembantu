@@ -17,6 +17,9 @@ Route::get('/', function () {
 Route::get('/rehan', function () {
     return view('index');
 });
+Route::get('/fronend', function () {
+    return view('backend.index');
+});
 
 
 
