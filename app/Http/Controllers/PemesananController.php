@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Pemesanan;
+use App\pemesanan;
 use Session;
 class PemesananController extends Controller
 {
@@ -14,12 +14,12 @@ class PemesananController extends Controller
      */
     public function index()
     {
-        $pemesanan = Pemesanan::all();
+        $pemesanan = pemesanan::all();
         Session::flash("flash_notification",[
            "level" => "success",
            "message" => "berhasil menampilkan"
        ]);
-       return view('pemesanan.index',compact('pemesanan'));
+       return view('backend.pemesanan.index',compact('pemesanan'));
     }
 
     /**
@@ -29,7 +29,7 @@ class PemesananController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.pemesanan.create');
     }
 
     /**

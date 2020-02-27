@@ -8,7 +8,7 @@
 </style>
 <center><h1>Data majikan</h1></center>
 
-<a href="{{url('/majikan/create')}}"class="btn btn-primary form-control">Tambah Data</a><br><br>
+<a href="{{url('/admin/majikan/create')}}"class="btn btn-primary form-control">Tambah Data</a><br><br>
 
 	        <table id="tab" class="table table-striped table-bordered" style="width:100%">
 			<!-- <table class="table table-default"> -->
@@ -19,7 +19,7 @@
                     <th>Nama </th>
                     <th>Jenis Kelamin</th>
                     <th>Alamat</th>
-                    <th>Nomer KTP</th>
+                    <th>Nomer Ponsel</th>
 		            <th><center>Action</center></th>
 
 		        </tr>

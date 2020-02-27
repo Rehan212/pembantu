@@ -50,7 +50,7 @@ class MajikanController extends Controller
          Session::flash("flash_notification",[
             // "level" => "success",
             // "message" => "berhasil mengedit <b>"
-            //             .$kategori->kategori_nama."</b>"
+            //             .$majikan->majikan_nama."</b>"
         ]);
             //6.tampilkan berhasil
             return redirect()->route('majikan.index');
@@ -76,7 +76,13 @@ class MajikanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $majikan = majikan::findOrFail($id);
+        Session::flash("flash_notification",[
+            "level" => "success",
+            "message" => "berhasil mengedit <b>"
+                        .$majikan->nama_majikan."</b>"
+        ]);
+        return view('backend.majikan.edit',compact('majikan'));
     }
 
     /**
@@ -88,7 +94,19 @@ class MajikanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $majikan = majikan::findOrFail($id);
+        $majikan->majikan_kode = $request->majikan_kode;
+        $majikan->nama_majikan = $request->nama_majikan;
+        $majikan->jenis_kelamin = $request->jenis_kelamin;
+        $majikan->alamat_majikan = $request->alamat_majikan;
+        $majikan->no_ktp = $request->no_ktp;
+        $majikan->save();
+        Session::flash("flash_notification",[
+            "level" => "success",
+            "message" => "berhasil mengedit <b>"
+                        .$majikan->majikan_nama."</b>"
+        ]);
+           return redirect()->route('majikan.index');
     }
 
     /**
@@ -99,6 +117,7 @@ class MajikanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $majikan = majikan::findOrFail($id)->delete();
+        return redirect()->route('majikan.index');
     }
 }

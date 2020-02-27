@@ -20,12 +20,22 @@ Route::get('/rehan', function () {
 Route::get('/fronend', function () {
     return view('backend.index');
 });
+Route::get('/welcome', function () {
+    return view('backend.welcome');
+});
 
+Route::group(['prefix' => '/'], function () {
+    Route::get('/frontend','FrontendController@index');
+});
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('pembantu', 'PembantuController');
-Route::resource('kategori', 'KategoriController');
-Route::resource('majikan', 'MajikanController');
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+    Route::resource('pembantu', 'PembantuController');
+    Route::resource('kategori', 'KategoriController');
+    Route::resource('majikan', 'MajikanController');
+    Route::resource('pemesanan', 'PemesananController');
+});

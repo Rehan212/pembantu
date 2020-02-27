@@ -76,7 +76,8 @@ class PembantuController extends Controller
      */
     public function show($id)
     {
-        //
+        $pembantu = pembantu::findOrFail($id);
+        return view('backend.pembantu.show', compact('pembantu'));
     }
 
     /**
@@ -87,7 +88,13 @@ class PembantuController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pembantu = pembantu::findOrFail($id);
+        Session::flash("flash_notification",[
+            "level" => "success",
+            "message" => "berhasil mengedit <b>"
+                        .$pembantu->nama_pembantu."</b>"
+        ]);
+        return view('backend.pembantu.edit',compact('pembantu'));
     }
 
     /**
@@ -99,7 +106,43 @@ class PembantuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pembantu = pembantu::findOrFail($id);
+        $pembantu->pembantu_kode = $request->pembantu_kode;
+        $pembantu->n_pembantu = $request->n_pembantu;
+        $pembantu->alamat_pembantu = $request->alamat_pembantu;
+        $pembantu->umur = $request->umur;
+        $pembantu->jk_pembantu = $request->jk_pembantu;
+        $pembantu->pendidikan = $request->pendidikan;
+        $pembantu->agama = $request->agama;
+        $pembantu->status = $request->status;
+        $pembantu->pengalaman_kerja = $request->pengalaman_kerja;
+
+        if ($request->hasFile('photo_art')) {
+            $file = $request->file('photo_art');
+            $path = public_path() .
+                    '/assets/img/';
+            $filename = str_random(6) . '_'
+                . $file->getClientOriginalName();
+            $uploadSuccess = $file->move(
+                $path,
+                $filename
+            );
+            //hapus photo_art lama, jika ada
+            if ($pembantu->photo_art) {
+                $old_photo_art = $pembantu->photo_art;
+                $filepath = public_path() .
+                    '/assets/img/                                                                                                                                                                                 c' .
+                    $pembantu->photo_art;
+                try {
+                    File::delete($filepath);
+                } catch (FileNotFoundException $e) {
+                    //File sudah dihapus/tidak ada
+                }
+            }
+            $pembantu->photo_art = $filename;
+        }
+        $pembantu->save();
+        return redirect()->route('pembantu.index');
     }
 
     /**
@@ -110,6 +153,7 @@ class PembantuController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pembantu = pembantu::findOrFail($id)->delete();
+        return redirect()->route('pembantu.index');
     }
 }

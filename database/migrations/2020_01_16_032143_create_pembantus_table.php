@@ -24,7 +24,7 @@ class CreatePembantusTable extends Migration
             $table->string('agama');
             $table->string('status');
             $table->string('pengalaman_kerja');
-            $table->string('photo_art');
+            $table->string('photo_art')->nullable();
             $table->timestamps();
         });
     }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Peminjaman Buku</title>
+    <title>ART</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="/assets/dash/assets/images/icon/favicon.ico">
     <link rel="stylesheet" href="{{ asset('assets/dash/assets/css/bootstrap.min.css')}}">
@@ -44,7 +44,7 @@
         <div class="sidebar-menu">
             <div class="sidebar-header">
                 <div class="logo">
-                    <a href="/home"><img src="/assets/dash/assets/images/icon/logo.png" alt="logo"></a>
+                    <a href="/home"><img src="/assets/hus/hus/img/artlogo.png" alt="" height="56px" width="56px"></a>
                 </div>
             </div>
             <div class="main-menu">
@@ -55,12 +55,13 @@
                                 <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>dashboard</span></a>
                                 <ul class="collapse">
 
-                                        <li><a href="/majikan">Majikan</a></li>
+                                        <li><a href="/admin/majikan">Majikan</a></li>
 
-                                        <li><a href="/pembantu">pembantu</a></li>
+                                        <li><a href="/admin/pembantu">pembantu</a></li>
 
 
-                                        <li><a href="/kategori">Kategori</a></li>
+                                        <li><a href="/admin/kategori">Kategori</a></li>
+                                        <li><a href="/admin/pemesanan">Pemesanan</a></li>
 
                                 </ul>
                             </li>
@@ -254,8 +255,8 @@
                     </div>
                     <div class="col-sm-6 clearfix">
                         <div class="user-profile pull-right">
-                            <img class="avatar user-thumb" src="/assets/dash/assets/images/author/avatar.png" alt="avatar">
-                            {{-- <h4 class="user-name dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}<i class="fa fa-angle-down"></i></h4> --}}
+
+                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}<i class="fa fa-angle-down"></i></h4>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">Message</a>
                                 <a class="dropdown-item" href="#">Settings</a>

@@ -10,7 +10,7 @@
                         {{ csrf_field() }}
                         <div class="form-group">
                                 <label for="">Kode kategori</label>
-                                <input class="form-control" type="text" name="kategori_kode">
+                                <input class="form-control" type="text" name="kategori_kode" value="K<?php echo (rand())?>" readonly>
                         </div>
                             <div class="form-group">
                                 <label for="">Nama kategori</label>
@@ -22,7 +22,7 @@
                                 </button>
                             </div>
                             <div class="form-group">
-                                <a href="{{ url('kategori') }}" class="btn btn-outline-info">Kembali</a>
+                                <a href="{{ url('/admin/kategori') }}" class="btn btn-outline-info">Kembali</a>
                             </div>
 
                     </form>

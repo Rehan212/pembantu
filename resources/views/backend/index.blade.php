@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Hus</title>
+    <title>ART</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -44,7 +44,7 @@
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo">
                                 <a href="index.html">
-                                    <img src="/assets/hus/hus/img/logo.png" alt="">
+                                    <img src="/assets/hus/hus/img/artlogo.png" alt="" height="29px" width="100px">
                                 </a>
                             </div>
                         </div>
@@ -52,7 +52,7 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a class="active" href="index.html">home</a></li>
+                                        {{-- <li><a class="active" href="index.html">home</a></li>
                                         <li><a href="about.html">About</a></li>
                                         <li><a href="#">pages</a>
                                             <ul class="submenu">
@@ -67,7 +67,7 @@
                                                 <li><a href="single-blog.html">single-blog</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="contact.html">Contact</a></li> --}}
                                     </ul>
                                 </nav>
                             </div>
@@ -75,10 +75,10 @@
                         <div class="col-xl-4 col-lg-4 d-none d-lg-block">
                             <div class="social_wrap d-flex align-items-center justify-content-end">
                                 <div class="login_text">
-                                    <a href="#">Login</a>
+                                    <a href="/login">Login</a>
                                 </div>
                                 <div class="number">
-                                    <p>Call us <a href="#">+001 325 589</a></p>
+
                                 </div>
                             </div>
                         </div>
@@ -161,12 +161,12 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>pembantu
                 <div class="col-lg-6">
                     <div class="about_info pl-70">
                         <div class="section_title mb-55">
-                            <h3>We are Hus <br>
-                                <span>Realestate Company</span></h3>
+                            <h3>PROJECT <br>
+                                <span>HOUSEHOLD ASSISTANT</span></h3>
                             <div class="devider">
                                 <span></span>
                                 <span></span>
@@ -213,36 +213,26 @@
                 </div>
             </div>
             <div class="row">
+
+                @foreach ($pembantu as $data)
                 <div class="col-lg-4 col-md-6">
-                    <div class="single_feature text-center">
-                        <div class="icon">
-                            <i class="flaticon-sketch"></i>
+                        <div class="single_feature text-center">
+                            <div class="icon">
+                            <img class="rounded" src="{{asset('assets/img/'.$data->photo_art.'') }}" alt="" width="100px" height="100px">
+                            </div>
+                            <h3>{{$data->n_pembantu}}</h3>
+                            <ul style="text-align: left">
+                                <li> Jenis Kelamin : {{$data->jk_pembantu}}</li>
+                                <li> Umur          : {{$data->umur}}</li>
+                                <li> Pendidikan    : {{$data->pendidikan}}</li>
+                                <li> Agama         : {{$data->agama}}</li>
+                                <li> Status        : {{$data->status}}</li>
+                            </ul>
+                            <a href="#">Learn more</a>
                         </div>
-                        <h3>Planning Stage</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-                        <a href="#">Learn more</a>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_feature text-center">
-                        <div class="icon">
-                            <i class="flaticon-hotel"></i>
-                        </div>
-                        <h3>Planning Stage</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-                        <a href="#">Learn more</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_feature text-center">
-                        <div class="icon">
-                            <i class="flaticon-headset"></i>
-                        </div>
-                        <h3>Planning Stage</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-                        <a href="#">Learn more</a>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </div>
@@ -285,10 +275,11 @@
         </div>
     </div>
     <!-- property_certificates_end  -->
+ <br><br>
 
 
     <!-- appertment_area_start  -->
-    <div class="appertment_area">
+    {{-- <div class="appertment_area">
         <div class="appertment_active owl-carousel">
             <div class="single_appertment">
                 <div class="thumb">
@@ -387,7 +378,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- appertment_area_end  -->
 
     <!-- testimonial_area  -->
@@ -451,31 +442,7 @@
     </div>
     <!-- /testimonial_area  -->
     <!-- quotation_area_start  -->
-    <div class="quotation_area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="quotation_text d-flex align-items-center justify-content-between">
-                        <div class="quotation_info">
-                            <h3>Get a free <br>
-                                quotation Today!</h3>
-                                <p>Have any questions in mind?</p>
-                            <a href="#" class="boxed-btn3">Contact Us</a>
-                        </div>
-                        <div class="sayhello d-flex align-items-center">
-                            <div class="icon">
-                                <i class="fa fa-phone"></i>
-                            </div>
-                            <div class="num">
-                                <span>say Hello,</span>
-                                <h3>+44 563 986 4785 </h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <!-- our_latest_news_area_Start  -->
     <div class="our_latest_news_area">
@@ -556,7 +523,7 @@
                             <p>Heaven fruitful doesn't over lesser days appear creeping seasons so behold bearing days open</p>
                             <div class="footer_logo">
                                 <a href="#">
-                                    <img src="/assets/hus/hus/img/footer_logo.png" alt="">
+                                    <img src="/assets/hus/hus/img/artlogo.png" alt="" height="60px" width="100px">
                                 </a>
                             </div>
                         </div>

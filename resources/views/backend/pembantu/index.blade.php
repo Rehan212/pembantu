@@ -9,7 +9,7 @@
                 <!-- <table class="table table-default"> -->
 
 
-                <a href="{{url('pembantu/create')}}"class="btn btn-primary form-control">Tambah Data</a><br><br>
+                <a href="{{url('admin/pembantu/create')}}"class="btn btn-primary form-control">Tambah Data</a><br><br>
 
 
 
@@ -18,12 +18,8 @@
                     <th><center>No</center></th>
                     <th>Kode </th>
                     <th>Nama </th>
-                    <th>Alamat</th>
                     <th>Umur</th>
                     <th>Jenis Kelamin</th>
-                    <th>Pendidikan</th>
-                    <th>Agama</th>
-                    <th>Status</th>
                     <th>Pengalaman kerja</th>
                     <th>Foto KTP</th>
 		            <th><center>Action</center></th>
@@ -39,22 +35,17 @@
                             <td>{{$no++}}</td>
 			                <td>{{ $data->pembantu_kode }}</td>
                             <td>{{ $data->n_pembantu }}</td>
-                            <td>{{ $data->alamat_pembantu }}</td>
                             <td>{{ $data->umur}}</td>
                             <td>{{ $data->jk_pembantu}}</td>
-                            <td>{{ $data->pendidikan }}</td>
-                            <td>{{ $data->agama}}</td>
-                            <td>{{ $data->status}}</td>
                             <td>{{ $data->pengalaman_kerja }}</td>
-
                             <td><img src="{{ asset('assets/img/'.$data->photo_art.'') }}" alt="" height="100px" width="150px"></td>
                             <td>
-
-                                        <button class="btn-lg"><a  href="{{route('pembantu.edit',$data->id)}}"><span class="ti-pencil"></span><span class="icon-name"></span></a></button>
+                                        <button class="btn-lg"><a  href="{{route('pembantu.show',$data->id)}}"><span class="fa fa-eye"></span></a></button>
+                                        <button class="btn-lg"><a  href="{{route('pembantu.edit',$data->id)}}"><span class="ti-pencil"></span></a></button>
                                         <form action="{{ route('pembantu.destroy', $data->id) }}" method="post">
                                             @csrf
                                             <input type="hidden" name="_method" value="DELETE">
-                                            <button class="btn-lg" type="submit"><span class="ti-trash"></span><span class="icon-name"></span></button>
+                                            <button class="btn-lg" type="submit"><span class="ti-trash"></span></button>
                                         </form>
                             </td>
                         </tr>

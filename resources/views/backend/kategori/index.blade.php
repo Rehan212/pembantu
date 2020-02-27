@@ -6,7 +6,7 @@
 <br>
     <div class="table-responsive">
 
-        <a href="{{url('/kategori/create')}}"class="btn btn-primary form-control">Tambah Data</a><br><br>
+        <a href="{{url('/admin/kategori/create')}}"class="btn btn-primary form-control">Tambah Data</a><br><br>
         <table id="tab" class="table">
 			<!-- <table class="table table-default"> -->
             <thead>

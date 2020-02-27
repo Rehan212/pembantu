@@ -6,11 +6,11 @@
             <div class="card">
                 <div class="card-header"><center><h1>Membuat Data Pembantu</h1></center></div>
                 <div class="card-body">
-                    <form action="{{ route('pembantu.store') }}" method="post">
+                    <form action="{{ route('pembantu.store') }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
                             <div class="form-group">
                                 <label for="">Kode</label>
-                                <input class="form-control" type="text" name="pembantu_kode">
+                                <input class="form-control" type="text" name="pembantu_kode" value="P<?php echo (rand())?>" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="">Nama</label>
@@ -26,43 +26,59 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Jenis Kelamin</label>
-                                <input class="form-control" type="text" name="jk_pembantu">
+                                <select name="jk_pembantu" id="" class="form-control">
+                                    <option value="P">Perempuan</option>
+                                    <option value="L">Laki-laki</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="">Pendidikan</label>
-                                <input class="form-control" type="text" name="pendidikan">
+                                <select class="form-control" name="pendidikan" id="">
+                                    <option value="SMP">SMP</option>
+                                    <option value="MA">MA</option>
+                                    <option value="SMA">SMA</option>
+                                    <option value="SMK">SMK</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="">Agama</label>
-                                <input class="form-control" type="text" name="agama">
+                                <select class="form-control" name="agama" id="">
+                                    <option value="Islam">Islam</option>
+                                    <option value="Kristen">Kristen</option>
+                                    <option value="Hindu">Hindu</option>
+                                    <option value="Buddha">Buddha</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="">Status</label>
-                                <input class="form-control" type="text" name="status">
+                                <select class="form-control" name="status" id="" >
+                                    <option value="Sudah Menikah">Sudah Menikah</option>
+                                    <option value="Belum Menikah">Belum Menikah</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="">Pengalaman Kerja</label>
                                 <input class="form-control" type="text" name="pengalaman_kerja">
                             </div>
-                            <div class="file-upload-inner ts-forms">
-                                <div class="input prepend-big-btn">
-                                        <label class="icon-right" for="prepend-big-btn">
-                                            <i class="fa fa-download"></i>
-                                        </label>
-                                    <div class="file-button">
-                                        Photo KTP
-                                        <input required type="file" class="form-control" name="photo_art" onchange="document.getElementById('prepend-big-btn').value = this.value;">
-                                    </div>
-                                    <input type="text" readonly id="prepend-big-btn" disabled>
-                                </div>
+
+                            <div class="form-group">
+                                    <div class="file-upload-inner ts-forms">
+                                            <div class="input prepend-big-btn">
+                                                <div class="file-button">
+                                                    Foto
+                                                    <input required type="file" class="form-control" name="photo_art" onchange="document.getElementById('prepend-big-btn').value = this.value;">
+                                                </div>
+                                            </div>
+                                        </div>
                             </div>
+
                             <div class="form-group">
                                 <button type="submit" class="btn btn-outline-info">
                                 Simpan Data
                                 </button>
                             </div>
                             <div class="form-group">
-                                <a href="{{ url('pembantu') }}" class="btn btn-outline-info">Kembali</a>
+                                <a href="{{ url('admin/pembantu') }}" class="btn btn-outline-info">Kembali</a>
                             </div>
 
                     </form>
