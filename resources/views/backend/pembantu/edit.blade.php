@@ -6,7 +6,7 @@
                     <div class="card">
                             <div class="card-header"><center><h1>Mengubah Data pembantu</h1></center></div>
                             <div class="card-body">
-                                <form action="{{ route('pembantu.update', $pembantu->id) }}" method="post">
+                                <form action="{{ route('pembantu.update', $pembantu->id) }}" method="post" enctype="multipart/form-data">
                                         <input name="_method" type="hidden" value="PATCH">
                                         {{ csrf_field() }}
                                         <div class="form-group">

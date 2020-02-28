@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\pembantu;
 use Session;
+use File;
+use Illuminate\Support\Str;
 class PembantuController extends Controller
 {
     /**
@@ -117,30 +119,26 @@ class PembantuController extends Controller
         $pembantu->status = $request->status;
         $pembantu->pengalaman_kerja = $request->pengalaman_kerja;
 
-        if ($request->hasFile('photo_art')) {
+        if($request->hasFile('photo_art')){
             $file = $request->file('photo_art');
-            $path = public_path() .
-                    '/assets/img/';
-            $filename = str_random(6) . '_'
-                . $file->getClientOriginalName();
-            $uploadSuccess = $file->move(
-                $path,
-                $filename
-            );
-            //hapus photo_art lama, jika ada
-            if ($pembantu->photo_art) {
-                $old_photo_art = $pembantu->photo_art;
-                $filepath = public_path() .
-                    '/assets/img/                                                                                                                                                                                 c' .
-                    $pembantu->photo_art;
-                try {
+            $path = public_path().'/assets/img/';
+            $filename = Str::random(6). '_' .$file->getClientOriginalName();
+            $uploadSuccess = $file->move($path, $filename);
+            //hapus photo_art lama
+            if($pembantu->photo_art){
+                $old_foto = $pembantu->photo_art;
+                $filepath = public_path() .'/assets/img/'. $pembantu->photo_art;
+
+                    try{
                     File::delete($filepath);
-                } catch (FileNotFoundException $e) {
-                    //File sudah dihapus/tidak ada
-                }
+                    }
+                    catch(FileNotFoundException $e){
+                    //File sudah dihapus atau tidak ada
+                    }
             }
             $pembantu->photo_art = $filename;
         }
+
         $pembantu->save();
         return redirect()->route('pembantu.index');
     }

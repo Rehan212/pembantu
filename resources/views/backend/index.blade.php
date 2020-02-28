@@ -156,12 +156,12 @@
                     <div class="about_exp d-flex align-items-center justify-content-center">
                         <div class="about_exp_inner_upper d-flex align-items-center justify-content-center">
                             <div class="about_exp_inner text-center">
-                                <span>10</span>
+                                <span>3</span>
                                 <p>Years of Exprince</p>
                             </div>
                         </div>
                     </div>
-                </div>pembantu
+                </div>
                 <div class="col-lg-6">
                     <div class="about_info pl-70">
                         <div class="section_title mb-55">
@@ -173,22 +173,22 @@
                             </div>
                         </div>
                         <div class="info_inner">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             <ul>
-                                <li>Lorem ipsum dolor sit amet</li>
+                                {{-- <li>Lorem ipsum dolor sit amet</li>
                                 <li>Consectetur adipisicing elit, sed do</li>
                                 <li>Eiusmod tempor incididunt ut labore</li>
-                                <li>Ad minim veniam, quis nostrud.</li>
+                                <li>Ad minim veniam, quis nostrud.</li> --}}
                             </ul>
                             <div class="customer_info d-flex">
-                                <div class="single_info d-flex align-items-baseline">
+                                {{-- <div class="single_info d-flex align-items-baseline">
                                     <span class="counter">120</span>
                                     <p>Buildings</p>
                                 </div>
                                 <div class="single_info d-flex align-items-baseline">
                                     <span ><span class="counter">500</span>+</span>
                                     <p>Clients</p>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -204,7 +204,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section_title text-center white_title mb-80">
-                        <h3>Our Facilities</h3>
+                        <h3>BIODATA <br>
+                            HOUSEHOLD ASSISTANT</h3>
                         <div class="devider">
                             <span></span>
                             <span></span>
@@ -244,32 +245,26 @@
             <div class="row align-items-center">
                 <div class="col-lg-4">
                     <div class="section_title">
-                        <h3>Property
-                            <span>Certificates</span></h3>
+                        <h3>
+                            SUPERIOR</h3>
                         <div class="devider">
                             <span></span>
                             <span></span>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-8">
-                    <div class="certificate_listing d-flex justify-content-between align-items-center">
-                        <div class="single_list">
-                            <div class="thumb">
-                                <img src="/assets/hus/hus/img/certificates/1.png" alt="">
+                <div class="row">
+                    @foreach ($pembantu as $item)
+                    <div class="col-md-4">
+                            <div class="certificate_listing d-flex justify-content-between align-items-center">
+                                <div class="single_list">
+                                    <div class="thumb">
+                                        <img class="rounded" src="{{asset('assets/img/'.$item->photo_art.'') }}" alt="" width="189px" height="245px">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="single_list">
-                            <div class="thumb">
-                                <img src="/assets/hus/hus/img/certificates/2.png" alt="">
-                            </div>
-                        </div>
-                        <div class="single_list">
-                            <div class="thumb">
-                                <img src="/assets/hus/hus/img/certificates/3.png" alt="">
-                            </div>
-                        </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>
