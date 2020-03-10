@@ -8,7 +8,7 @@
 </style>
 <center><h1>Data Pemesanan</h1></center>
 
-<a href="{{url('/pemesanan/create')}}"class="btn btn-primary form-control">Tambah Data</a><br><br>
+<a href="{{url('/admin/pemesanan/create')}}"class="btn btn-primary form-control">Tambah Data</a><br><br>
 
 	        <table id="tab" class="table table-striped table-bordered" style="width:100%">
 			<!-- <table class="table table-default"> -->
@@ -30,9 +30,9 @@
 		            @foreach($pemesanan as $data)
 		                <tr>
 			                <td>{{$no++}}</td>
-			                <td>{{ $data->pemesanan_kode }}</td>
-                            <td>{{ $data->kategori_kode}}</td>
-                            <td>{{ $data->pembantu_kode }}</td>
+			                <td>{{ $data->majikan->majikan_kode }}</td>
+                            <td>{{ $data->kategori->kategori_nama}}</td>
+                            <td>{{ $data->pembantu->pembantu_kode }}</td>
                             <td>{{ $data->durasi_kontrak}}</td>
 	                        <td>
 								<button class="btn-lg"><a  href="{{route('pemesanan.edit',$data->id)}}"><span class="ti-pencil"></span></a></button>

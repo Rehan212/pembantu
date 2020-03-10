@@ -11,6 +11,6 @@ class pembantu extends Model
 
     public function pemesanan()
     {
-        return $this->hasMany(' App\Pemesanan');
+        return $this->hasMany('App\Pemesanan', 'id_kategori');
     }
 }

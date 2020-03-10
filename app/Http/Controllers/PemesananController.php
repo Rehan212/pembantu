@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\pemesanan;
+use App\pembantu;
+use App\majikan;
+use App\kategori;
 use Session;
 class PemesananController extends Controller
 {
@@ -15,11 +18,15 @@ class PemesananController extends Controller
     public function index()
     {
         $pemesanan = pemesanan::all();
+        $majikan = majikan::all();
+        $pembantu = pembantu::all();
+        $kategori = kategori::all();
         Session::flash("flash_notification",[
            "level" => "success",
            "message" => "berhasil menampilkan"
        ]);
-       return view('backend.pemesanan.index',compact('pemesanan'));
+    // dd($pemesanan);
+       return view('backend.pemesanan.index',compact('pemesanan', 'majikan', 'pembantu', 'kategori'));
     }
 
     /**
@@ -29,7 +36,11 @@ class PemesananController extends Controller
      */
     public function create()
     {
-        return view('backend.pemesanan.create');
+        $pemesanan = pemesanan::all();
+        $majikan = majikan::all();
+        $pembantu = pembantu::all();
+        $kategori = kategori::all();
+        return view('backend.pemesanan.create',compact('pemesanan', 'majikan', 'pembantu', 'kategori'));
     }
 
     /**
@@ -40,7 +51,18 @@ class PemesananController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pemesanan = new pemesanan;
+        $pemesanan->kategori_kode = $request->kategori_nama;
+        $pemesanan->pembantu_kode = $request->pembantu_kode;
+        $pemesanan->majikan_kode = $request->nama_majikan;
+        $pemesanan->durasi_kontrak = $request->durasi_kontrak;
+        $pemesanan->save();
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "berhasil mengedit <b>"
+                . $pemesanan->pemesanan_judul . "</b>"
+        ]);
+        return redirect()->route('pemesanan.index');
     }
 
     /**

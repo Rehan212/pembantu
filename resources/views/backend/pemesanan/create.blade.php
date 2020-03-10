@@ -9,20 +9,31 @@
                     <form action="{{ route('pemesanan.store') }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
                             <div class="form-group">
-                                <label for="">Kode</label>
-                                <input class="form-control" type="text" name="pemesanan_kode" value="PS<?php echo (rand())?>" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Nama</label>
-                                <input class="form-control" type="text" name="n_pemesanan">
-                            </div>
-                            <div class="form-group">
                                 <label for="">Kode Kategori</label>
-                                <input class="form-control" type="text" name="kategori_kode">
+                                <select class="form-control" name="kategori_nama">
+                                    <option value="" disabled>-- Pilih Data Kategori--</option>
+                                        @foreach($kategori as $data)
+                                            <option value="{{ $data->id }}">{{ $data->kategori_nama }}</option>
+                                        @endforeach
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="">Kode Pembantu</label>
-                                <input class="form-control" type="text" name="pembantu_kode">
+                                <select class="form-control" name="pembantu_kode">
+                                    <option value="" disabled>-- Pilih Data Kategori--</option>
+                                        @foreach($kategori as $data)
+                                            <option value="{{ $data->id }}">{{ $data->pembantu_kode }}</option>
+                                        @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                    <label for="">Kode Majikan</label>
+                                    <select class="form-control" name="nama_majikan">
+                                        <option value="" disabled>-- Pilih Data Kategori--</option>
+                                            @foreach($kategori as $data)
+                                                <option value="{{ $data->id }}">{{ $data->nama_majikan }}</option>
+                                            @endforeach
+                                    </select>
                             </div>
                             <div class="form-group">
                                 <label for="">Durasi Kontrak</label>
