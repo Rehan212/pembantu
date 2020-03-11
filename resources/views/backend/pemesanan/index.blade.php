@@ -30,7 +30,7 @@
 		            @foreach($pemesanan as $data)
 		                <tr>
 			                <td>{{$no++}}</td>
-			                <td>{{ $data->majikan->majikan_kode }}</td>
+			                <td>{{ $data->majikan->nama_majikan }}</td>
                             <td>{{ $data->kategori->kategori_nama}}</td>
                             <td>{{ $data->pembantu->pembantu_kode }}</td>
                             <td>{{ $data->durasi_kontrak}}</td>

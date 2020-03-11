@@ -20,8 +20,8 @@
                             <div class="form-group">
                                 <label for="">Kode Pembantu</label>
                                 <select class="form-control" name="pembantu_kode">
-                                    <option value="" disabled>-- Pilih Data Kategori--</option>
-                                        @foreach($kategori as $data)
+                                    <option value="" disabled>-- Pilih Kode Pembantu--</option>
+                                        @foreach($pembantu as $data)
                                             <option value="{{ $data->id }}">{{ $data->pembantu_kode }}</option>
                                         @endforeach
                                 </select>
@@ -29,8 +29,8 @@
                             <div class="form-group">
                                     <label for="">Kode Majikan</label>
                                     <select class="form-control" name="nama_majikan">
-                                        <option value="" disabled>-- Pilih Data Kategori--</option>
-                                            @foreach($kategori as $data)
+                                        <option value="" disabled>-- Pilih Kode Majikan--</option>
+                                            @foreach($majikan as $data)
                                                 <option value="{{ $data->id }}">{{ $data->nama_majikan }}</option>
                                             @endforeach
                                     </select>

@@ -246,7 +246,7 @@
                 <div class="col-lg-4">
                     <div class="section_title">
                         <h3>
-                            SUPERIOR</h3>
+                            HOUSEHOLD ASSISTANT</h3>
                         <div class="devider">
                             <span></span>
                             <span></span>
